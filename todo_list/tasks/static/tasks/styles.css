@@ -1,0 +1,19 @@
+.header_todo_list {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.task-date {
+    color: #888;    /* серый цвет */
+    font-size: 0.9em; /* делаем меньше текст */
+}
+
+.btn-primary{
+    font-size: 3em;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
