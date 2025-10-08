@@ -1,10 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'main/layout.html' %}
+
+{% block title %}Задачи{% endblock %}
+
+{% block content %}
+    <h1>Список задач</h1>
+    <a type="button" href="{% url 'add_task' %}" class="button">Добавить задачу</a>
+
+    {% for task in tasks %}
+        <div class="alert alert-warning">
+            <form method="post" action="{% url 'toggle_status' task.id %}">
+                {% csrf_token %}
+                <input class="form-check-input" type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+            </form>
+            <form method="post" action="{% url 'delete_task' task.id %}">
+                {% csrf_token %}
+                <button type="submit" class="default-button-delete">Удалить</button>
+            </form>
+            <form method="get" action="{% url 'edit_task' task.id %}">
+                <button type="submit" class="default-button-change">Редактировать</button>
+        </div>
+    {% endfor %}
+{% endblock %}

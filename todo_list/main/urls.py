@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    path('task_list', views.task_list, name='task_list'),
-    path('add_task', views.add_task, name='add_task'),
+    path('tasks', views.tasks, name='tasks'),
+    # path('add_task', views.add_task, name='add_task'),
     path('magic', views.magic, name='magic'),
 ]

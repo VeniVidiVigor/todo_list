@@ -1,49 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:500');
+
 body {
-    background: #2c2c2c;
-    color: #eb5959;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  background: #2c2c2c;
+  color: #eb5959;
 }
 
 aside {
-    float: left;
-    background: #181818;
-    width: 20%;
-    padding: 2.5%;
-    height: 100vh;
-    color: #fff;
-    border-right: 5px solid #4d4d4d;
+  float: left;
+  background: #181818;
+  width: 20%;
+  padding: 2.5%;
+  height: 100vh;
+  color: #fff;
+  border-right: 5px solid #4d4d4d;
 }
 
 aside img {
-    width: 80px;
-    float: left;
+  width: 80px;
+  float: left;
 }
 
 aside .logo {
-    font-size: 40px;
-    margin-left: 10px;
-    font-weight: bold;
-    position: relative;
-    top: 10px;
+  font-size: 40px;
+  margin-left: 10px;
+  font-weight: bold;
+  position: relative;
+  top: 10px;
 }
 
 aside h3 {
-    margin-top: 50px;
-    font-size: 30px;
+  margin-top: 50px;
+  font-size: 30px;
 }
 
-aside ul {list-style: none;}
+aside ul {
+  list-style: none;
+}
 aside ul li {
-    font-size: 28px;
-    color: #fff;
-    display: block;
-    margin-top: 20px;
-    transition: transform .6s ease;
+  font-size: 28px;
+  color: #fff;
+  display: block;
+  margin-top: 20px;
+  transition: transform 0.6s ease;
 }
 
-aside ul a {text-decoration: none}
+aside ul a {
+  text-decoration: none;
+}
 
-aside ul li:hover, aside ul a:hover {
-    color: #eb5959;
-    text-decoration: none;
-    transform: scale(1.05);
+aside ul li:hover,
+aside ul a:hover {
+  color: #eb5959;
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.alert-warning {
+  float: left;
+  /* clear: both; */
+  width: 400px;
+  /* margin: 20px 34%; */
+  text-align: left;
+}
+
+input[type="checkbox"].form-check-input:checked {
+  background-color: red; /* Для Bootstrap */
+  border-color: red;
+}
+
+input[type="checkbox"].form-check-input {
+  accent-color: red; /* Для современных браузеров */
+}
+
+.button {
+  background-color: #eb5959;
+  border-color: #eb5959;
+  color: white;
+  position: fixed;
+  font-size: 16px;
+  padding: 16px 42px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  right: 10px;
+  top: 10px;
+}
+
+input[type="button"] {
+  background-color: #eb5959;
+  border-color: #eb5959;
+  color: white;
+  position: fixed;
+  right: 50px;
+  top: 10px;
+}
+
+.default-button-delete {
+  background-color: #eb5959;
+  border-color: #eb5959;
+  color: white;
+  /* position: absolute; */
+  float: right;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+}
+
+.default-button-change {
+  background-color: #6859eb;
+  border-color: #6859eb;
+  color: white;
+  font-size: 14px;
+  padding: 8px 16px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
 }

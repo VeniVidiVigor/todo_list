@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Добавление задачи{% endblock %}
+
+{% block content %}
+    <h1>Редактирование задачи</h1>
+    <div class="container-add-task">
+        <form method="post" action="{% url 'edit_task' task.id %}">
+            {% csrf_token %}
+            <p>
+                <label for="title-task">Название задачи:</label>
+                <input id="title-task" type="text" name="title-task" value="{{ task.title }}" required>
+            </p>
+            <p>
+                <label for="description-task">Описание задачи:</label>
+                <input id="description-task" type="text" name="description-task" value="{{ task.description }}">
+            </p>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
+    
+{% endblock %}
