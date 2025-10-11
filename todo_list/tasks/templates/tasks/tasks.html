@@ -3,23 +3,39 @@
 {% block title %}Задачи{% endblock %}
 
 {% block content %}
-    <h1>Список задач</h1>
-    <a type="button" href="{% url 'add_task' %}" class="button">Добавить задачу</a>
-
-    {% for task in tasks %}
-        <div class="alert alert-warning">
-            <form method="post" action="{% url 'toggle_status' task.id %}">
-                {% csrf_token %}
-                <input class="form-check-input" type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
-                <h3>{{ task.title }}</h3>
-                <p>{{ task.description }}</p>
+    <div class="status-bar-container">
+        <h1>Список задач</h1>
+        <div class="status-bar-actions">
+            <form class="status-bar-filter">
+                <label for="filter_status">Фильтрация</label>
+                <select name="status" id="filter_status">
+                    <option value="">-- Выберите статус --</option>
+                    <option value="completed">Выполнено</option>
+                    <option value="active">В процессе</option>
+                </select>
             </form>
-            <form method="post" action="{% url 'delete_task' task.id %}">
-                {% csrf_token %}
-                <button type="submit" class="default-button-delete">Удалить</button>
-            </form>
-            <form method="get" action="{% url 'edit_task' task.id %}">
-                <button type="submit" class="default-button-change">Редактировать</button>
-        </div>
-    {% endfor %}
+            <a type="button" href="{% url 'add_task' %}" class="status-bar-button">Добавить задачу</a>
+        </div>    
+    </div>    
+    <div class="tasks-container">
+        {% for task in tasks %}
+            <div class="alert alert-warning" id="task-div">
+                <form method="post" action="{% url 'toggle_status' task.id %}">
+                    {% csrf_token %}
+                    <input class="form-check-input" type="checkbox" name="completed" onchange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+                    <h3>{{ task.title }}</h3>
+                    <p>{{ task.description }}</p>
+                </form>
+                <div class="task-buttons">
+                    <form method="post" action="{% url 'delete_task' task.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="default-button-delete"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                    <form method="get" action="{% url 'edit_task' task.id %}">
+                        <button type="submit" class="default-button-change"><i class="fa-solid fa-pen-to-square"></i></button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

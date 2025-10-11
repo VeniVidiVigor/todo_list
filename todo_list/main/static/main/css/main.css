@@ -1,20 +1,29 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:500');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
-body {
-  font-family: 'Rubik', sans-serif;
-  display: flex;
-  background: #2c2c2c;
-  color: #eb5959;
+html, body {
+  font-family: 'Comfortaa', sans-serif;
+  background: linear-gradient(240deg, #323a3e 0%, #757677 100%);
+  color:#e8dbd3;
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  padding-right: 32px;
 }
+
+/* h1 {
+  margin-top: 15px;
+  margin-left: 15px;
+} */
 
 aside {
   float: left;
-  background: #181818;
-  width: 20%;
-  padding: 2.5%;
+  /* background: #181818; */
+  width: 16%;
+  padding: 1%;
   height: 100vh;
-  color: #fff;
-  border-right: 5px solid #4d4d4d;
+  color: #e8dbd3;
+  /* border-right: 5px solid #4d4d4d; */
 }
 
 aside img {
@@ -23,7 +32,7 @@ aside img {
 }
 
 aside .logo {
-  font-size: 40px;
+  font-size: 25px;
   margin-left: 10px;
   font-weight: bold;
   position: relative;
@@ -31,16 +40,17 @@ aside .logo {
 }
 
 aside h3 {
-  margin-top: 50px;
+  margin-top: 80px;
   font-size: 30px;
 }
 
 aside ul {
   list-style: none;
+  margin-top: 90px;
 }
 aside ul li {
   font-size: 28px;
-  color: #fff;
+  color: #e8dbd3;
   display: block;
   margin-top: 20px;
   transition: transform 0.6s ease;
@@ -58,20 +68,58 @@ aside ul a:hover {
 }
 
 .alert-warning {
-  float: left;
-  /* clear: both; */
-  width: 400px;
-  /* margin: 20px 34%; */
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  background-color: rgb(35, 34, 34);
+  border-color: rgb(35, 34, 34);
+  color:#e8dbd3;
 }
 
-input[type="checkbox"].form-check-input:checked {
-  background-color: red; /* Для Bootstrap */
+.tasks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 16px; 
+  margin-left: 15px; 
+  margin-top: 30px;
+}
+
+/* input[type="checkbox"].form-check-input:checked {
+  background-color: red; 
   border-color: red;
 }
 
 input[type="checkbox"].form-check-input {
-  accent-color: red; /* Для современных браузеров */
+  accent-color: red;
+  float: right;
+} */
+
+/* Скрываем стандартный чекбокс */
+input[type="checkbox"].form-check-input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #e8dbd3;
+  border-radius: 5px;
+  background: #222;
+  float: right;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+}
+
+/* Галочка */
+input[type="checkbox"].form-check-input:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid #266b21;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 .button {
@@ -96,24 +144,61 @@ input[type="button"] {
   top: 10px;
 }
 
+.task-buttons {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.default-button-change,
 .default-button-delete {
+  font-size: 1.5em;
+  width: 50px; height: 50px;
+  float: right;
+  border-radius: 50%;
+  border: none;
+  transition: background-color 0.6s, transform 0.5s;
+}
+
+.default-button-change:hover {
+  transform: scale(110%);
+  background-color: #e8dbd3;
+}
+
+.default-button-delete:hover {
+  transform: scale(110%);
+  background-color: #ff0000;
+}
+
+.status-bar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.status-bar-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.status-bar-button {
   background-color: #eb5959;
   border-color: #eb5959;
   color: white;
-  /* position: absolute; */
-  float: right;
-  font-size: 14px;
-  padding: 8px 16px;
+  /* position: fixed; */
+  font-size: 16px;
+  padding: 16px 42px;
   border-radius: 3px;
   box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  /* right: 10px; */
+  /* top: 10px; */
 }
 
-.default-button-change {
-  background-color: #6859eb;
-  border-color: #6859eb;
-  color: white;
-  font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 3px;
-  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+.status-bar-filter {
+  /* position: fixed; */
+  /* float: right; */
+  margin-right: 8px;
 }
