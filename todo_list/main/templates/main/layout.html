@@ -19,6 +19,19 @@
             <a href="{% url 'add_task' %}"><li><i class="fa-solid fa-pen-to-square"></i> Добавление</li></a>
             <a href="{% url 'magic' %}"><li><i class="fa-solid fa-wand-magic-sparkles"></i> Магия</li></a>
         </ul>
+        <div class="user-bar-container">
+            {% if user.is_authenticated %}
+            <div class="username-info">
+                <span><i class="fa-solid fa-user"></i> {{ user.username }}</span>
+            </div>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                    <button type="submit" class="bar-btn user-bar-button-logout">Выйти</button>
+                </form>
+            {% else %}
+                <a href="{% url 'login' %}"><button class="bar-btn user-bar-button-login">Войти</button></a>
+            {% endif %}      
+        </div>
     </aside>
     <main>
         {% block content %}

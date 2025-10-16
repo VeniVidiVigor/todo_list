@@ -4,8 +4,8 @@ html, body {
   font-family: 'Comfortaa', sans-serif;
   background: linear-gradient(240deg, #323a3e 0%, #757677 100%);
   color:#e8dbd3;
-  width: 100vw;
-  min-height: 100vh;
+  width: 99vw;
+  min-height: 99vh;
   margin: 0;
   padding: 0;
   padding-right: 32px;
@@ -70,7 +70,7 @@ aside ul a:hover {
 .alert-warning {
   display: flex;
   flex-direction: column;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   background-color: rgb(35, 34, 34);
   border-color: rgb(35, 34, 34);
   color:#e8dbd3;
@@ -78,21 +78,11 @@ aside ul a:hover {
 
 .tasks-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px; 
-  margin-left: 15px; 
+  /* margin-left: 15px;  */
   margin-top: 30px;
 }
-
-/* input[type="checkbox"].form-check-input:checked {
-  background-color: red; 
-  border-color: red;
-}
-
-input[type="checkbox"].form-check-input {
-  accent-color: red;
-  float: right;
-} */
 
 /* Скрываем стандартный чекбокс */
 input[type="checkbox"].form-check-input {
@@ -188,17 +178,59 @@ input[type="button"] {
   background-color: #eb5959;
   border-color: #eb5959;
   color: white;
-  /* position: fixed; */
   font-size: 16px;
   padding: 16px 42px;
   border-radius: 3px;
   box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
-  /* right: 10px; */
-  /* top: 10px; */
 }
 
 .status-bar-filter {
-  /* position: fixed; */
-  /* float: right; */
   margin-right: 8px;
+}
+
+.user-bar-container {
+  position: fixed;
+  bottom: 20px;        /* прижимаем к низу экрана */
+  left: 32px;          /* сдвигаем немного вправо от края */
+  display: flex;
+  flex-direction: column; /* логин над кнопкой */
+  align-items: center;    /* выравниваем по центру */
+  gap: 10px;              /* расстояние между логином и кнопкой */
+}
+
+.bar-btn {
+  background-color: #e8dbd3;
+  border-color: #e8dbd3;
+  color: black;
+  font-size: 16px;
+  padding: 12px 36px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  transition: background-color 0.6s, transform 0.5s;
+}
+
+.user-bar-button-login {
+  position: static;
+}
+
+.user-bar-button-login:hover {
+  transform: scale(110%);
+  background-color: #e8dbd3;
+}
+
+.user-bar-button-logout {
+  position: static;
+}
+
+.user-bar-button-logout:hover {
+  transform: scale(110%);
+  background-color: #e8dbd3;
+}
+
+.username-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  color: #e8dbd3;
 }

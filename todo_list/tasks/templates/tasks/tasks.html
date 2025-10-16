@@ -6,12 +6,12 @@
     <div class="status-bar-container">
         <h1>Список задач</h1>
         <div class="status-bar-actions">
-            <form class="status-bar-filter">
+            <form class="status-bar-filter" method="get" action="{% url 'filter_status_tasks' %}">
                 <label for="filter_status">Фильтрация</label>
-                <select name="status" id="filter_status">
-                    <option value="">-- Выберите статус --</option>
-                    <option value="completed">Выполнено</option>
-                    <option value="active">В процессе</option>
+                <select name="status" id="filter_status" onchange="this.form.submit()">
+                    <option value="">Все задачи</option>
+                    <option value="completed" {% if filter_status == 'completed' %}selected{% endif %}>Выполнено</option>
+                    <option value="active" {% if filter_status == 'active' %}selected{% endif %}>В процессе</option>
                 </select>
             </form>
             <a type="button" href="{% url 'add_task' %}" class="status-bar-button">Добавить задачу</a>
