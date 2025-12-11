@@ -11,19 +11,12 @@ html, body {
   padding-right: 32px;
 }
 
-/* h1 {
-  margin-top: 15px;
-  margin-left: 15px;
-} */
-
 aside {
   float: left;
-  /* background: #181818; */
   width: 16%;
   padding: 1%;
   height: 100vh;
   color: #e8dbd3;
-  /* border-right: 5px solid #4d4d4d; */
 }
 
 aside img {
@@ -70,7 +63,6 @@ aside ul a:hover {
 .alert-warning {
   display: flex;
   flex-direction: column;
-  /* margin-left: 5px; */
   background-color: rgb(35, 34, 34);
   border-color: rgb(35, 34, 34);
   color:#e8dbd3;
@@ -80,7 +72,6 @@ aside ul a:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px; 
-  /* margin-left: 15px;  */
   margin-top: 30px;
 }
 
@@ -164,7 +155,7 @@ input[type="button"] {
 .status-bar-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   margin-left: 15px;
 }
 
@@ -175,13 +166,21 @@ input[type="button"] {
 }
 
 .status-bar-button {
-  background-color: #eb5959;
-  border-color: #eb5959;
-  color: white;
+  background-color: #e8dbd3;
+  border-color: #e8dbd3;
+  color: black;
   font-size: 16px;
   padding: 16px 42px;
   border-radius: 3px;
   box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  transition: background-color 0.6s, transform 0.5s;
+}
+
+.status-bar-button:hover {
+  transform: scale(110%);
+  background-color: #eb5959;
+  color: white;
+  border-color: #eb5959;
 }
 
 .status-bar-filter {
@@ -190,12 +189,12 @@ input[type="button"] {
 
 .user-bar-container {
   position: fixed;
-  bottom: 20px;        /* прижимаем к низу экрана */
-  left: 32px;          /* сдвигаем немного вправо от края */
+  bottom: 20px;
+  left: 32px;
   display: flex;
-  flex-direction: column; /* логин над кнопкой */
-  align-items: center;    /* выравниваем по центру */
-  gap: 10px;              /* расстояние между логином и кнопкой */
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .bar-btn {
@@ -233,4 +232,60 @@ input[type="button"] {
   gap: 6px;
   font-size: 18px;
   color: #e8dbd3;
+}
+
+.add-task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+  resize: both;
+  min-height: 100px;
+  max-height: 400px;
+}
+
+.add-task-container p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.add-task-container input, .register-container input, .login-container input,
+.add-task-container textarea, .register-container textarea, .login-container tex {
+  width: 100%;
+  max-width: 400px; /* ширина поля */
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 2px solid #e8dbd3;
+  border-radius: 8px;
+  background-color: #444; /* цвет фона поля */
+  color: #f3e9e1;
+  transition: all 0.3s ease;
+}
+
+.add-task-container input:focus, .register-container input:focus, .login-container input:focus,
+.add-task-container textarea:focus, .register-container textarea:focus, .login-container textarea:focus{
+  outline: none;
+  border-color: #eb5959;
+  background-color: #555;
+}
+
+.add-task-btn {
+  background-color: #e8dbd3;
+  border-color: #e8dbd3;
+  color: black;
+  font-size: 16px;
+  padding: 16px 42px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
+  transition: background-color 0.6s, transform 0.5s;
+  max-width: 200px;
+}
+
+.add-task-btn:hover {
+  transform: scale(110%);
+  background-color: #eb5959;
+  color: white;
+  border-color: #eb5959;
 }

@@ -3,8 +3,10 @@
 {% block title %}Добавление задачи{% endblock %}
 
 {% block content %}
-    <h1>Добавление задачи</h1>
-    <div class="container-add-task">
+    <div class="status-bar-container">
+        <h1>Добавление задачи</h1>
+    </div>
+    <div class="add-task-container">
         <form method="post" action="{% url 'add_new_task' %}">
             {% csrf_token %}
             <p>
@@ -13,9 +15,9 @@
             </p>
             <p>
                 <label for="description-task">Описание задачи:</label>
-                <input id="description-task" type="text" name="description-task">
+                <textarea id="description-task" name="description-task" rows="4"></textarea>
             </p>
-            <button type="submit">Добавить</button>
+            <button class="add-task-btn" type="submit">Добавить</button>
         </form>
     </div>
     

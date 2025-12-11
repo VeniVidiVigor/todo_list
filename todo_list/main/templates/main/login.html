@@ -7,8 +7,17 @@
     <h2>Вход на сайт</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="bar-btn login">Войти</button>
+        {% load widget_tweaks %}
+        <p>
+            <div>{{ form.username.label_tag }}</div>
+            <div>{{ form.username|add_class:"form-input" }}</div>
+        </p>
+
+        <p>
+            <div>{{ form.password.label_tag }}</div>
+            <div>{{ form.password|add_class:"form-input" }}</div>
+        </p>
+        <button type="submit" class="status-bar-button">Войти</button>
     </form>
 
     <p>Нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p>

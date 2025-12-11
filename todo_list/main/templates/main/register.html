@@ -7,7 +7,21 @@
     <h2>Регистрация</h2>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% load widget_tweaks %}
+        <p>
+            <div>{{ form.username.label_tag }}</div>
+            <div>{{ form.username|add_class:"form-input" }}</div>
+        </p>
+
+        <p>
+            <div>{{ form.password1.label_tag }}</div>
+            <div>{{ form.password1|add_class:"form-input" }}</div>
+        </p>
+
+        <p>
+            <div>{{ form.password2.label_tag }}</div>
+            <div>{{ form.password2|add_class:"form-input" }}</div>
+        </p>
         <button type="submit" class="status-bar-button">Зарегистрироваться</button>
     </form>
     <p>Уже есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
